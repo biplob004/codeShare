@@ -137,7 +137,7 @@ def detect(opt):
                             file_name = 'sohasyolov5/obj_train_data/labels/train/'+save_path.split('/')[-1].split('.')[0]+'.txt'
                             print('saved label at: '+ file_name)
                             with open(file_name, 'a') as a:
-                                a.write(f'\n7 {round(x1, 5)} {round(y1, 5)} {round(x2-x1, 5)} {round(y2-y1, y2-y1)}')
+                                a.write(f'\n7 {round(x1, 5)} {round(y1, 5)} {round(x2-x1, 5)} {round(y2-y1, 5)}')
 
 
                         
