@@ -136,8 +136,8 @@ def detect(opt):
                         if cls==0 and conf> 0.35: # person
                             file_name = 'sohasyolov5/obj_train_data/labels/train/'+save_path.split('/')[-1].split('.')[0]+'.txt'
                             print('saved label at: '+ file_name)
-                         	with open(file_name, 'a') as a:
-                         		a.write(f'7 {x1} {y1} {x2-x1} {y2-y1}')
+                            with open(file_name, 'a') as a:
+                                a.write(f'7 {x1} {y1} {x2-x1} {y2-y1}')
 
 
                         
@@ -158,8 +158,6 @@ def detect(opt):
             if save_img:
                 if dataset.mode == 'image':
                     cv2.imwrite(save_path, im0)
-                    # file_name = save_path.split('\\')[-1] #############################
-                    # print(f'File name is: {file_name}')
                 else:  # 'video' or 'stream'
                     if vid_path != save_path:  # new video
                         vid_path = save_path
