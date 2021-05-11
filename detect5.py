@@ -132,7 +132,7 @@ def detect(opt):
                         y2 = int(xyxy[3].item())
 
                         if cls==0 and conf> 0.35: # person
-                        	file_name = 'sohasyolov5/obj_train_data/images/labels/'+save_path.split('\\')[-1]
+                        	file_name = 'sohasyolov5/obj_train_data/labels/train/'+save_path.split('/')[-1]
                         	with open(file_name, 'a') as a:
                         		a.write(f'7 {x1} {y1} {x2-x1} {y2-y1}')
 
