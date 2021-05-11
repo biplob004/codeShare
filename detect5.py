@@ -126,10 +126,12 @@ def detect(opt):
                         #############>> commented this line to not to print bounding box on image
                         # plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=3)
 
-                        x1 = int(xyxy[0].item())
-                        y1 = int(xyxy[1].item())
-                        x2 = int(xyxy[2].item())
-                        y2 = int(xyxy[3].item())
+                        h = im0.shape[0]
+                        w = im0.shape[1]
+                        x1 = int(xyxy[0].item())/w
+                        y1 = int(xyxy[1].item())/h
+                        x2 = int(xyxy[2].item())/w
+                        y2 = int(xyxy[3].item())/h
 
                         if cls==0 and conf> 0.35: # person
                             file_name = 'sohasyolov5/obj_train_data/labels/train/'+save_path.split('/')[-1].split('.')[0]+'.txt'
