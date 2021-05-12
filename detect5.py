@@ -128,10 +128,10 @@ def detect(opt):
 
                         h = im0.shape[0]
                         w = im0.shape[1]
-                        x1 = int(xyxy[0].item())/w
-                        y1 = int(xyxy[1].item())/h
-                        x2 = int(xyxy[2].item())/w
-                        y2 = int(xyxy[3].item())/h
+                        x1 = xyxy[0].item()/w
+                        y1 = xyxy[1].item()/h
+                        x2 = xyxy[2].item()/w
+                        y2 = xyxy[3].item()/h
 
                         if cls==0 and conf> 0.35: # person
                             file_name = 'sohasyolov5/obj_train_data/labels/train/'+save_path.split('/')[-1].split('.')[0]+'.txt'
