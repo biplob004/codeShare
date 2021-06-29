@@ -109,7 +109,6 @@ def run(weights='yolov5s.pt',  # model.pt path(s)
             pred = apply_classifier(pred, modelc, img, im0s)
 
         # Process detections
-        detection_counter = 0 #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<--------------------------------------------------------------------- 1
         for i, det in enumerate(pred):  # detections per image
             if webcam:  # batch_size >= 1
                 p, s, im0, frame = path[i], f'{i}: ', im0s[i].copy(), dataset.count
@@ -130,6 +129,8 @@ def run(weights='yolov5s.pt',  # model.pt path(s)
                 for c in det[:, -1].unique():
                     n = (det[:, -1] == c).sum()  # detections per class
                     s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
+                    
+                    print(f'Number of {names[int(c)]} = {n} <<<<<<<<<<<<<<<<<<<<<<-------------------------------------------------')
 
                 # Write results
                 for *xyxy, conf, cls in reversed(det):
@@ -144,7 +145,6 @@ def run(weights='yolov5s.pt',  # model.pt path(s)
                         label = None if hide_labels else (names[c] if hide_conf else f'{names[c]} {conf:.2f}')
                         plot_one_box(xyxy, im0, label=label, color=colors(c, True), line_thickness=line_thickness)
                         
-                        detection_counter += 1 # <<<<<<<<<<<<<<<<<<<<<<<<<<<----------------------------------------------------------------- 2
                           
                         if save_crop:
                             save_one_box(xyxy, imc, file=save_dir / 'crops' / names[c] / f'{p.stem}.jpg', BGR=True)
@@ -184,7 +184,6 @@ def run(weights='yolov5s.pt',  # model.pt path(s)
         strip_optimizer(weights)  # update model (to fix SourceChangeWarning)
 
     print(f'Done. ({time.time() - t0:.3f}s)')
-    print(f'No. of detected objects : {detection_counter}') # <<<<<<<<<<<<<<---------------------------------------------------------------- 3
 
 
 def parse_opt():
