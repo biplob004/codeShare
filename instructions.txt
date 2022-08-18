@@ -3,4 +3,22 @@ git add . # all file
 git add newfile.txt
 git status # check what changed
 git commit -m "title of dec" -m "description.."
-git push 
+git push # local
+
+
+## ORIGIN ##
+## not testes: git remote set-url origin git://new.url.here
+git remote -v # check origin 
+git remote add origin git@github.com:biplob004/codeShare.git
+git remote remove origin
+git push origin master
+
+
+#branch
+git branch # show selected branch
+git checkout -b feature-1 # create new branch
+git checkout master # swich branched
+
+
+
+
