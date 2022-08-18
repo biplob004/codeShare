@@ -1,0 +1,6 @@
+git init # to start new git
+git add . # all file
+git add newfile.txt
+git status # check what changed
+git commit -m "title of dec" -m "description.."
+git push 
