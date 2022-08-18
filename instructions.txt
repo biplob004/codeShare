@@ -19,7 +19,7 @@ git branch # show selected branch
 git checkout -b feature-1 # create new branch
 git checkout master # swich branched
 git diff feature-1 # check differences in that branch
-git merge feature-1 # merge to main
+git merge feature-1 # run from master branch, merge to master
 git push origin feature-1
 git pull origin feature-1 # changes from github to local
 git branch -d feature-1 # delete feature branch
